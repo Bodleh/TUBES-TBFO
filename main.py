@@ -1,17 +1,6 @@
 import argparse
-
-tokens = []
-states = []
-tf = []
-
-def parse_dfa(file_pda: str) -> bool :
-    global tf
-    print(file_pda) 
-
-def parse_html(file_html) :
-    global tokens
-    #parse
-    print(file_html)
+from htmlparser import parse_html
+from pdaparser import parse_pda, process, printPDA
 
 parser = argparse.ArgumentParser()
 
@@ -31,8 +20,7 @@ if not is_html :
 if not is_txt or not is_html :
     exit()
 
-file_pda = open(file_pda, 'r').read()
-file_html = open(file_html, 'r').read()
-
-success_parse_pda = parse_dfa(file_pda)
-parse_html(file_html)
+pda = parse_pda(file_pda)
+printPDA(pda)
+tokens = parse_html(file_html)
+process(pda, tokens)

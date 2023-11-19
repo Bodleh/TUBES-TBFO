@@ -1,7 +1,9 @@
 import re
 
-
-def parse_html(html_content):
+def parse_html(html_path) -> list:
+    with open(html_path, 'r') as file:
+        html_content = file.read()
+    
     tag_regex = r"(<!--[^>]*-->)|(<[^>]+>)|([^<]+)"
     tokens = []
 
@@ -63,13 +65,3 @@ def parse_html(html_content):
                 tokens.append("STR")  # Append 'STR' for non-whitespace text
 
     return tokens
-
-
-# Read the HTML file
-file_html = "testuntukerror.html"
-with open(file_html, 'r') as file:
-    html_content = file.read()
-
-# Parse the HTML and get tokens
-tokens = parse_html(html_content)
-print(tokens)
