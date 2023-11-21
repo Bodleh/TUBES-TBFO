@@ -21,6 +21,7 @@ if not is_txt or not is_html :
     exit()
 
 pda = parse_pda(file_pda)
-printPDA(pda)
+printPDA(pda) #Debugging
 tokens = parse_html(file_html)
+print(tokens) #Debugging
 process(pda, tokens)

@@ -1,7 +1,9 @@
 import re
 
 
-def parse_html(html_content):
+def parse_html(html_path):
+    with open(html_path, 'r') as file:
+        html_content = file.read()
     tag_regex = r"(<!--[^>]*-->)|(<[^>]+>)|([^<]+)"
     tokens = []
     special_values = ['get', 'post', 'submit', 'reset', 'button',
@@ -79,7 +81,7 @@ def parse_html(html_content):
             if text:
                 tokens.append("STR")
 
-    return tokens
+    return filter_tokens(tokens)
 
 
 def filter_tokens(tokens):
@@ -87,14 +89,3 @@ def filter_tokens(tokens):
     filtered_tokens = [
         token for token in tokens if token not in ['STR', 'NO_STR']]
     return filtered_tokens
-
-
-# Read the HTML file
-file_html = "testuntukerror.html"
-with open(file_html, 'r') as file:
-    html_content = file.read()
-
-# Parse the HTML and get tokens
-tokens = parse_html(html_content)
-tokens = filter_tokens(tokens)
-print(tokens)

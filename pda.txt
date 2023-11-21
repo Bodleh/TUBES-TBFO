@@ -1,14 +1,43 @@
-Q P F
-a e
-Z Y
-Q
+HTML HEAD BODY END
+e
+e
+HTML
 Z
-F
-F
-Q a Z Q YZ
-Q a Y Q YY
-Q e Z P Z
-Q e Y P Y 
-P a Z P e 
-P a Y P e
-P e Z F e
+E
+E
+HTML <html Z HTML OHt,Z
+HTML > OHt HTML Ht
+HTML <head Ht HEAD OHe,Ht
+HEAD > OHe HEAD He
+HEAD <title He HEAD OTi,He 
+HEAD > OTi HEAD Ti
+HEAD </title Ti HEAD CTi
+HEAD > CTi HEAD e
+HEAD <link He HEAD OLi,He
+HEAD rel OLi HEAD ORel
+HEAD = ORel HEAD ERel
+HEAD " ERel HEAD OARel
+HEAD " OARel HEAD CRel
+HEAD href OLi HEAD OHref,OLi
+HEAD href CRel HEAD OHref,CRel
+HEAD = OHref HEAD EHref
+HEAD " EHref HEAD OAHref
+HEAD " OAHref HEAD e
+HEAD > CRel HEAD e
+HEAD <script He HEAD OSc,He
+HEAD > OSc HEAD Sc
+HEAD src OSc HEAD OSr
+HEAD = OSr HEAD ESr
+HEAD " ESr HEAD OASr
+HEAD " OASr HEAD CSr
+HEAD > CSr HEAD Sc
+HEAD </script Sc HEAD CSc
+HEAD > CSc HEAD e
+HEAD </head He HEAD CHe
+HEAD > CHe HEAD e
+HEAD <body Ht BODY OBo,Ht
+BODY > OBo BODY Bo
+BODY </body Bo BODY CBo
+BODY > CBo BODY e
+BODY </html Ht END CHt
+END > CHt END e

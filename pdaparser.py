@@ -46,7 +46,7 @@ def parse_pda(pda_path: str) -> dict :
                 'input' : line[1],
                 'pop' : line[2],
                 'next_state' : line[3],
-                'push' : list(line[4])
+                'push' : line[4].split(',')
             })
         count += 1
     
@@ -64,8 +64,9 @@ def process(pda, tokens) :
     stack = [pda['start_stack_symbol']]
     pda_type = pda['pda_type']
     valid = True
+    cur_token = ""
     for token in tokens :
-
+        cur_token = token
         #### for DEBUGGING
         # print(f"STACK: {stack}")
         # print(f"Current State : {current_state}") 
@@ -95,6 +96,9 @@ def process(pda, tokens) :
     ####
 
     if not valid :
+        print(f"Current State: {current_state}")
+        print(f"Current Token: {cur_token}")
+        print(f"Current Top Stack: {stack[-1]}")
         print("Syntax Error")
     else :
         if pda_type == 'F' and current_state in pda['final_states'] :
