@@ -18,6 +18,7 @@ def parse_html(html_path):
                 tokens.append('<!--')
                 tokens.append('STR')  # Comment content as 'STR'
                 tokens.append('-->')
+                tokens.append('x')
             else:
                 comment_parts = re.split(
                     r'(\s*<!\s*|\s*--\s*|\s*>|\s*--\s*>)', comment)
