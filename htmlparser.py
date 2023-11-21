@@ -46,8 +46,11 @@ def parse_html(html_path):
                         if quote_content in special_values:
                             tokens.append(quote_content)
                         else:
-                            tokens.append(
-                                "STR" if quote_content.strip() else "NO_STR")
+                            if quote_content.lower() == 'get' or quote_content.lower() == 'post' :  #To handle METHOD
+                                tokens.append(quote_content.lower())                                #
+                            else :                                                                  #
+                                tokens.append(
+                                    "STR" if quote_content.strip() else "NO_STR")
                     else:
                         tokens.append(
                             "STR" if quote_content.strip() else "NO_STR")

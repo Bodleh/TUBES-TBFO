@@ -65,6 +65,7 @@ def process(pda, tokens) :
     pda_type = pda['pda_type']
     valid = True
     cur_token = ""
+    processed_token = []
     for token in tokens :
         cur_token = token
         #### for DEBUGGING
@@ -89,7 +90,8 @@ def process(pda, tokens) :
         if not success :
             valid = False
             break
-    
+        
+        processed_token.append(token)
     #### for DEBUGGING
     # print(f"STACK: {stack}")
     # print(f"Current State : {current_state}")
@@ -98,6 +100,8 @@ def process(pda, tokens) :
     if not valid :
         print(f"Current State: {current_state}")
         print(f"Current Token: {cur_token}")
+        print(processed_token)
+        print(stack)
         print(f"Current Top Stack: {stack[-1]}")
         print("Syntax Error")
     else :
