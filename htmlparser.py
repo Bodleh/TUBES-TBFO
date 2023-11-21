@@ -4,6 +4,7 @@ import re
 def parse_html(html_path):
     with open(html_path, 'r') as file:
         html_content = file.read()
+
     tag_regex = r"(<!--[^>]*-->)|(<[^>]+>)|([^<]+)"
     tokens = []
     special_values = ['get', 'post', 'submit', 'reset', 'button',
@@ -66,7 +67,11 @@ def parse_html(html_path):
                                     attribute_name = temp_token
                             tokens.append(temp_token)
                             temp_token = ''
-                        if char in ['=', '>']:
+                        if char == '>':
+                            tokens.append(char)
+                            # Add 'X' after each close tag '>'
+                            tokens.append('x')
+                        elif char == "=":
                             tokens.append(char)
                     elif char != '<':
                         temp_token += char
