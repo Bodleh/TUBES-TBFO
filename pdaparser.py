@@ -90,6 +90,8 @@ def process(pda, tokens, html_path) :
 
     if not valid :
         counter = 1 + processed_token.count(cur_token)
+        if cur_token == '>' :
+            counter += processed_token.count('-->')
         line_number = 1
 
         with open(html_path, 'r') as file :
@@ -116,7 +118,11 @@ def process(pda, tokens, html_path) :
         elif pda_type == 'E' and stack == [pda['start_stack_symbol']] :
             print("Accepted")
         else :
-            print("Syntax Error")
+            with open(html_path, 'r') as file :
+                lines = file.readlines()
+            line_number = len(lines)
+            print("Syntax Error\n")
+            print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
 
 
 # Print PDA information for debugging
