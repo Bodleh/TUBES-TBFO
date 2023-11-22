@@ -4,7 +4,7 @@ CStrong OHe OBo OAlt OMethod OH1 Ht OId Table CBold OASrc OH4 Sc Em H3 Abbr OSc 
 HTML
 Z
 END
-F
+E
 HTML <!-- Z HTML OCom,Z
 HTML --> OCom HTML e
 HTML <html Z HTML OHt,Z
@@ -142,6 +142,7 @@ TABLE </table Table TABLE CTable
 TABLE > CTable TABLE e
 TABLE x Bo BODY Bo
 TABLE x Div DIVS Div
+TABLE x Form FORM Form
 TROW class ORow TROW OClass,ORow
 TROW = OClass TROW EClass
 TROW " EClass TROW OAClass
@@ -251,6 +252,7 @@ INPUT </input Input INPUT CInput
 INPUT > CInput INPUT e
 INPUT x Bo BODY Bo
 INPUT x Div DIVS Div
+INPUT x Form FORM Form
 FORM class OForm FORM OClass,OForm
 FORM = OClass FORM EClass
 FORM " EClass FORM OAClass
@@ -280,6 +282,23 @@ FORM <b Form BOLD OBold,Form
 FORM <abbr Form ABBRI OAbbr,Form
 FORM <strong Form STRG OStrong,Form
 FORM <small Form SML OSmall,Form
+FORM <link Form LINK OLi,Form
+FORM <script Form SCRIPT OSc,Form
+FORM <h1 Form HEADERnP OH1,Form
+FORM <h2 Form HEADERnP OH2,Form
+FORM <h3 Form HEADERnP OH3,Form
+FORM <h4 Form HEADERnP OH4,Form
+FORM <h5 Form HEADERnP OH5,Form
+FORM <h6 Form HEADERnP OH6,Form
+FORM <p Form HEADERnP OPar,Form
+FORM <br Form BR OBr,Form
+FORM <hr Form BR OBr,Form
+FORM <a Form ANCHOR OA,Form
+FORM <img Form IMAGE OImg,Form
+FORM <button Form BTN OBut,Form
+FORM <input Form INPUT OInput,Form
+FORM <table Form TABLE OTable,Form
+FORM <div Form DIVS ODiv,Form
 FORM <!-- Form FORM OCom,Form
 FORM --> OCom FORM e
 FORM </form Form FORM CForm
@@ -318,6 +337,7 @@ BTN </button But BTN CBut
 BTN > CBut BTN e
 BTN x Bo BODY Bo
 BTN x Div DIVS Div
+BTN x Form FORM Form
 EMP class OEm EMP OClass,OEm
 EMP = OClass EMP EClass
 EMP " EClass EMP OAClass
@@ -530,6 +550,7 @@ IMAGE " OAStyle IMAGE e
 IMAGE > CSrc IMAGE e
 IMAGE x Bo BODY Bo
 IMAGE x Div DIVS Div
+IMAGE x Form FORM Form
 ANCHOR class OA ANCHOR OClass,OA
 ANCHOR = OClass ANCHOR EClass
 ANCHOR " EClass ANCHOR OAClass
@@ -559,6 +580,7 @@ ANCHOR </a A ANCHOR CA
 ANCHOR > CA ANCHOR e
 ANCHOR x Bo BODY Bo
 ANCHOR x Div DIVS Div
+ANCHOR x Form FORM Form
 BR class OBr BR OClass,OBr
 BR = OClass BR EClass
 BR " EClass BR OAClass
@@ -574,6 +596,7 @@ BR " OAStyle BR e
 BR > OBr BR e
 BR x Bo BODY Bo
 BR x Div DIVS Div
+BR x Form FORM Form
 HEADERnP class OH1 HEADERnP OClass,OH1
 HEADERnP class OH2 HEADERnP OClass,OH2
 HEADERnP class OH3 HEADERnP OClass,OH3
@@ -671,6 +694,7 @@ HEADERnP </p Par HEADERnP CH
 HEADERnP > CH HEADERnP e
 HEADERnP x Bo BODY Bo
 HEADERnP x Div DIVS Div
+HEADERnP x Form FORM Form
 LINK rel OLi LINK ORel
 LINK = ORel LINK ERel
 LINK " ERel LINK OARel
@@ -699,6 +723,7 @@ LINK > CRel LINK e
 LINK x He HEAD He
 LINK x Bo BODY Bo
 LINK x Div DIVS Div
+LINK x Form FORM Form
 SCRIPT src OSc SCRIPT OSr,OSc
 SCRIPT = OSr SCRIPT ESr
 SCRIPT " ESr SCRIPT OASr
@@ -729,6 +754,7 @@ SCRIPT > CSc SCRIPT e
 SCRIPT x He HEAD He
 SCRIPT x Bo BODY Bo
 SCRIPT x Div DIVS Div
+SCRIPT x Form FORM Form
 END > CHt END e
 END x Z END Z
 END <!-- Z END OCom,Z
@@ -775,3 +801,4 @@ DIVS <div Div DIVS ODiv,Div
 DIVS </div Div DIVS CDiv
 DIVS > CDiv DIVS e
 DIVS x Bo BODY Bo
+DIVS x Form FORM Form
