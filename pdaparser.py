@@ -59,7 +59,7 @@ def parse_pda(pda_path: str) -> dict :
 
 
 # Process tokens into PDA
-def process(pda, tokens) :
+def process(pda, tokens, html_path) :
     current_state = pda['start_state']
     stack = [pda['start_stack_symbol']]
     pda_type = pda['pda_type']
@@ -68,11 +68,6 @@ def process(pda, tokens) :
     processed_token = []
     for token in tokens :
         cur_token = token
-        #### for DEBUGGING
-        # print(f"STACK: {stack}")
-        # print(f"Current State : {current_state}") 
-        ####
-
         success = False
         
         for transition in pda['tf'][current_state] :
@@ -92,18 +87,29 @@ def process(pda, tokens) :
             break
         
         processed_token.append(token)
-    #### for DEBUGGING
-    # print(f"STACK: {stack}")
-    # print(f"Current State : {current_state}")
-    ####
 
     if not valid :
-        print(f"Current State: {current_state}")
-        print(f"Current Token: {cur_token}")
-        print(processed_token)
-        print(stack)
-        print(f"Current Top Stack: {stack[-1]}")
-        print("Syntax Error")
+        counter = 1 + processed_token.count(cur_token)
+        line_number = 1
+
+        with open(html_path, 'r') as file :
+            lines = file.readlines()
+        
+        count = 0
+        for line in lines :
+            count += line.count(cur_token)
+            if count >= counter :
+                break
+            else :
+                line_number += 1
+
+        # print(f"Current State: {current_state}")
+        # print(f"Current Token: {cur_token}")
+        # print(processed_token)
+        # print(stack)
+        # print(f"Current Top Stack: {stack[-1]}")
+        print("Syntax Error\n")
+        print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
     else :
         if pda_type == 'F' and current_state in pda['final_states'] :
             print("Accepted")
