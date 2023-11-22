@@ -56,11 +56,6 @@ HEAD " EStyle HEAD OAStyle
 HEAD " OAStyle HEAD e 
 HEAD > OTi HEAD Ti
 HEAD x Ti HEAD Ti
-HEAD <em Ti EMP OEm,Ti
-HEAD <b Ti BOLD OBold,Ti
-HEAD <abbr Ti ABBRI OAbbr,Ti
-HEAD <strong Ti STRG OStrong,Ti
-HEAD <small Ti SML OSmall,Ti
 HEAD </title Ti HEAD CTi
 HEAD > CTi HEAD e
 HEAD <link He LINK OLi,He
@@ -363,7 +358,6 @@ EMP x Form FORM Form
 EMP x But BTN But
 EMP x A ANCHOR A
 EMP x Sc SCRIPT Sc
-EMP x Ti HEAD Ti
 BOLD class OBold BOLD OClass,OBold
 BOLD = OClass BOLD EClass
 BOLD " EClass BOLD OAClass
@@ -399,7 +393,6 @@ BOLD x Form FORM Form
 BOLD x But BTN But
 BOLD x A ANCHOR A
 BOLD x Sc SCRIPT Sc
-BOLD x Ti HEAD Ti
 ABBRI class OAbbr ABBRI OClass,OAbbr
 ABBRI = OClass ABBRI EClass
 ABBRI " EClass ABBRI OAClass
@@ -435,7 +428,6 @@ ABBRI x Form FORM Form
 ABBRI x But BTN But
 ABBRI x A ANCHOR A
 ABBRI x Sc SCRIPT Sc
-ABBRI x Ti HEAD Ti
 STRG class OStrong STRG OClass,OStrong
 STRG = OClass STRG EClass
 STRG " EClass STRG OAClass
@@ -471,7 +463,6 @@ STRG x Form FORM Form
 STRG x But BTN But
 STRG x A ANCHOR A
 STRG x Sc SCRIPT Sc
-STRG x Ti HEAD Ti
 SML class OSmall SML OClass,OSmall
 SML = OClass SML EClass
 SML " EClass SML OAClass
@@ -507,7 +498,6 @@ SML x Form FORM Form
 SML x But BTN But
 SML x A ANCHOR A
 SML x Sc SCRIPT Sc
-SML x Ti HEAD Ti
 IMAGE src OImg IMAGE OSrc
 IMAGE = OSrc IMAGE ESrc
 IMAGE " ESrc IMAGE OASrc
