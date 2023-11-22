@@ -1,7 +1,6 @@
 import re
 
-
-def parse_html(html_path):
+def parse_html(html_path: str) -> list:
     with open(html_path, 'r') as file:
         html_content = file.read()
 
@@ -12,12 +11,12 @@ def parse_html(html_path):
     special_tags = {'button': ['type'], 'form': ['method'], 'input': ['type']}
 
     for match in re.finditer(tag_regex, html_content):
-        if match.group(1):  # If it's a comment
-            if match.group(1):  # If it's a comment
+        if match.group(1): 
+            if match.group(1): 
                 tokens.append('<!--')
-                tokens.append('STR')  # Comment content as 'STR'
+                tokens.append('STR') 
                 tokens.append('-->')
-        elif match.group(2):  # If it's a tag
+        elif match.group(2):
             tag = match.group(2)
             tag_name = ''
             attribute_name = ''
@@ -29,7 +28,7 @@ def parse_html(html_path):
                 if char == '"' and not inside_quotes:
                     inside_quotes = True
                     quote_content = ''
-                    tokens.append('"')  # Add opening quote to tokens
+                    tokens.append('"')
                     continue
 
                 if char == '"' and inside_quotes:
@@ -40,10 +39,10 @@ def parse_html(html_path):
                         if quote_content in special_values:
                             tokens.append(quote_content)
                         else:
-                            if quote_content.lower() == 'get' or quote_content.lower() == 'post':  # To handle METHOD
+                            if quote_content.lower() == 'get' or quote_content.lower() == 'post':
                                 #
                                 tokens.append(quote_content.lower())
-                            else:                                                                  #
+                            else:                                                                 
                                 tokens.append(
                                     "STR" if quote_content.strip() else "NO_STR")
                     else:
@@ -51,7 +50,7 @@ def parse_html(html_path):
                             "STR" if quote_content.strip() else "NO_STR")
 
                     attribute_name = ''
-                    tokens.append('"')  # Add closing quote to tokens
+                    tokens.append('"')
                     continue
 
                 if inside_quotes:
@@ -68,7 +67,6 @@ def parse_html(html_path):
                             temp_token = ''
                         if char == '>':
                             tokens.append(char)
-                            # Add 'X' after each close tag '>'
                             tokens.append('x')
                         elif char == "=":
                             tokens.append(char)
@@ -80,7 +78,7 @@ def parse_html(html_path):
             if temp_token:
                 tokens.append(temp_token)
 
-        else:  # If it's text content
+        else:
             text = match.group(3).strip()
             if text:
                 tokens.append("STR")
@@ -88,10 +86,10 @@ def parse_html(html_path):
     return filter_tokens(tokens)
 
 
-def filter_tokens(tokens):
+def filter_tokens(tokens: list) -> list:
     filtered_tokens = []
-    in_title_tag = False  # Flag to track if we're inside a <title> tag
-    skip_content = False  # Flag to skip content inside <title>...</title>
+    in_title_tag = False
+    skip_content = False
 
     for token in tokens:
         if '<title' in token.lower():
@@ -103,7 +101,7 @@ def filter_tokens(tokens):
             skip_content = False
             filtered_tokens.append(token)
         elif in_title_tag and token == '>':
-            skip_content = True  # Start skipping content after the '>' of <title>
+            skip_content = True
             filtered_tokens.append(token)
         elif (not skip_content and token not in ['STR', 'NO_STR']) or token == 'x':
             filtered_tokens.append(token)

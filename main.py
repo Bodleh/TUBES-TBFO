@@ -1,6 +1,6 @@
 import argparse
 from htmlparser import parse_html
-from pdaparser import parse_pda, process, printPDA
+from pdaparser import parse_pda, process, print_pda
 
 parser = argparse.ArgumentParser()
 
@@ -21,7 +21,8 @@ if not is_txt or not is_html :
     exit()
 
 pda = parse_pda(file_pda)
-#printPDA(pda) #Debugging
 tokens = parse_html(file_html)
-#print(tokens) #Debugging
+## For debugging
+#print_pda(pda)
+#print(tokens)
 process(pda, tokens, file_html)

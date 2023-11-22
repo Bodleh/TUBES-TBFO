@@ -1,8 +1,4 @@
-# Check if pda is valid
-def check_pda_validity(pda) :
-    print()
-
-# PDA FILE FORMAT MUST BE TRUE
+# Note: PDA file format must be true
 def parse_pda(pda_path: str) -> dict :
     pda = {
         'states' : [],
@@ -56,8 +52,6 @@ def parse_pda(pda_path: str) -> dict :
 
     return pda
 
-
-
 # Process tokens into PDA
 def process(pda, tokens, html_path) :
     current_state = pda['start_state']
@@ -93,7 +87,7 @@ def process(pda, tokens, html_path) :
         if cur_token == '>' :
             counter += processed_token.count('-->')
         line_number = 1
-
+        print(f"counter: {counter}")
         with open(html_path, 'r') as file :
             lines = file.readlines()
         
@@ -105,11 +99,11 @@ def process(pda, tokens, html_path) :
             else :
                 line_number += 1
 
-        # print(f"Current State: {current_state}")
-        # print(f"Current Token: {cur_token}")
-        # print(processed_token)
-        # print(stack)
-        # print(f"Current Top Stack: {stack[-1]}")
+        print(f"Current State: {current_state}")
+        print(f"Current Token: {cur_token}")
+        print(processed_token)
+        print(stack)
+        print(f"Current Top Stack: {stack[-1]}")
         print("Syntax Error\n")
         print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
     else :
@@ -124,9 +118,8 @@ def process(pda, tokens, html_path) :
             print("Syntax Error\n")
             print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
 
-
 # Print PDA information for debugging
-def printPDA(pda) :
+def print_pda(pda) :
     print(f"             States : {pda['states']}")
     print(f"      Input symbols : {pda['input_symbols']}")
     print(f"      Stack symbols : {pda['stack_symbols']}")
