@@ -89,7 +89,23 @@ def parse_html(html_path):
 
 
 def filter_tokens(tokens):
-    # Filter out 'STR' and 'NO_STR' from the token list
-    filtered_tokens = [
-        token for token in tokens if token not in ['STR', 'NO_STR']]
+    filtered_tokens = []
+    in_title_tag = False  # Flag to track if we're inside a <title> tag
+    skip_content = False  # Flag to skip content inside <title>...</title>
+
+    for token in tokens:
+        if '<title' in token.lower():
+            in_title_tag = True
+            skip_content = False
+            filtered_tokens.append(token)
+        elif '</title' in token.lower():
+            in_title_tag = False
+            skip_content = False
+            filtered_tokens.append(token)
+        elif in_title_tag and token == '>':
+            skip_content = True  # Start skipping content after the '>' of <title>
+            filtered_tokens.append(token)
+        elif (not skip_content and token not in ['STR', 'NO_STR']) or token == 'x':
+            filtered_tokens.append(token)
+
     return filtered_tokens
