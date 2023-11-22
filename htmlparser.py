@@ -5,7 +5,7 @@ def parse_html(html_path):
     with open(html_path, 'r') as file:
         html_content = file.read()
 
-    tag_regex = r"(<!--[^>]*-->)|(<[^>]+>)|([^<]+)"
+    tag_regex = r"(<!--[\s\S]*?-->)|(<[^>]+>)|([^<]+)"
     tokens = []
     special_values = ['get', 'post', 'submit', 'reset', 'button',
                       'password', 'text', 'email', 'number', 'checkbox']
@@ -13,15 +13,10 @@ def parse_html(html_path):
 
     for match in re.finditer(tag_regex, html_content):
         if match.group(1):  # If it's a comment
-            comment = match.group(1)
-            if comment.startswith('<!--') and comment.endswith('-->'):
+            if match.group(1):  # If it's a comment
                 tokens.append('<!--')
                 tokens.append('STR')  # Comment content as 'STR'
                 tokens.append('-->')
-            else:
-                comment_parts = re.split(
-                    r'(\s*<!\s*|\s*--\s*|\s*>|\s*--\s*>)', comment)
-                tokens.extend([part for part in comment_parts if part.strip()])
         elif match.group(2):  # If it's a tag
             tag = match.group(2)
             tag_name = ''
@@ -45,9 +40,10 @@ def parse_html(html_path):
                         if quote_content in special_values:
                             tokens.append(quote_content)
                         else:
-                            if quote_content.lower() == 'get' or quote_content.lower() == 'post' :  #To handle METHOD
-                                tokens.append(quote_content.lower())                                #
-                            else :                                                                  #
+                            if quote_content.lower() == 'get' or quote_content.lower() == 'post':  # To handle METHOD
+                                #
+                                tokens.append(quote_content.lower())
+                            else:                                                                  #
                                 tokens.append(
                                     "STR" if quote_content.strip() else "NO_STR")
                     else:
