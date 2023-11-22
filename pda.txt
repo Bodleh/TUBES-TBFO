@@ -239,17 +239,7 @@ INPUT email OAType INPUT FType
 INPUT number OAType INPUT FType
 INPUT checkbox OAType INPUT FType
 INPUT " FType INPUT e
-INPUT > OInput INPUT Input
-INPUT x Input INPUT Input
-INPUT <em Input EMP OEm,Input
-INPUT <b Input BOLD OBold,Input
-INPUT <abbr Input ABBRI OAbbr,Input
-INPUT <strong Input STRG OStrong,Input
-INPUT <small Input SML OSmall,Input
-INPUT <!-- Input INPUT OCom,Input
-INPUT --> OCom INPUT e
-INPUT </input Input INPUT CInput
-INPUT > CInput INPUT e
+INPUT > OInput INPUT e
 INPUT x Bo BODY Bo
 INPUT x Div DIVS Div
 INPUT x Form FORM Form
@@ -369,7 +359,6 @@ EMP x Table TABLE Table
 EMP x Row TROW Row
 EMP x Dat TDATA Dat
 EMP x Th THEADER Th
-EMP x Input INPUT Input
 EMP x Form FORM Form
 EMP x But BTN But
 EMP x A ANCHOR A
@@ -406,7 +395,6 @@ BOLD x Table TABLE Table
 BOLD x Row TROW Row
 BOLD x Dat TDATA Dat
 BOLD x Th THEADER Th
-BOLD x Input INPUT Input
 BOLD x Form FORM Form
 BOLD x But BTN But
 BOLD x A ANCHOR A
@@ -443,7 +431,6 @@ ABBRI x Table TABLE Table
 ABBRI x Row TROW Row
 ABBRI x Dat TDATA Dat
 ABBRI x Th THEADER Th
-ABBRI x Input INPUT Input
 ABBRI x Form FORM Form
 ABBRI x But BTN But
 ABBRI x A ANCHOR A
@@ -480,7 +467,6 @@ STRG x Table TABLE Table
 STRG x Row TROW Row
 STRG x Dat TDATA Dat
 STRG x Th THEADER Th
-STRG x Input INPUT Input
 STRG x Form FORM Form
 STRG x But BTN But
 STRG x A ANCHOR A
@@ -517,7 +503,6 @@ SML x Table TABLE Table
 SML x Row TROW Row
 SML x Dat TDATA Dat
 SML x Th THEADER Th
-SML x Input INPUT Input
 SML x Form FORM Form
 SML x But BTN But
 SML x A ANCHOR A
