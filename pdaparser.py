@@ -1,3 +1,5 @@
+from htmlparser import parse_html_with_nl
+
 # Note: PDA file format must be true
 def parse_pda(pda_path: str) -> dict :
     pda = {
@@ -84,28 +86,28 @@ def process(pda, tokens, html_path) :
 
     if not valid :
         counter = 1 + processed_token.count(cur_token)
-        if cur_token == '>' :
-            counter += processed_token.count('-->')
-        line_number = 1
-        print(f"counter: {counter}")
-        with open(html_path, 'r') as file :
-            lines = file.readlines()
         
-        count = 0
-        for line in lines :
-            count += line.count(cur_token)
-            if count >= counter :
-                break
-            else :
+        line_number = 1
+        tokens_with_nl = parse_html_with_nl(html_path)
+        counter_check = 0
+        for el in tokens_with_nl :
+            if el == 'nl' :
                 line_number += 1
-
-        print(f"Current State: {current_state}")
-        print(f"Current Token: {cur_token}")
-        print(processed_token)
-        print(stack)
-        print(f"Current Top Stack: {stack[-1]}")
+            if el == cur_token :
+                counter_check += 1
+            if counter == counter_check :
+                break
+        
+        # print(f"Current State: {current_state}")
+        # print(f"Current Token: {cur_token}")
+        # print(processed_token)
+        # print(stack)
+        # print(f"Current Top Stack: {stack[-1]}")
         print("Syntax Error\n")
-        print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
+        if cur_token == 'STR' :
+            print(f"Error at line {line_number} : Text can't be in <html>, <head>, <body>, <table>, or <tr> tag")
+        else :
+            print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
     else :
         if pda_type == 'F' and current_state in pda['final_states'] :
             print("Accepted")

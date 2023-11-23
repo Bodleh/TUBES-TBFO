@@ -178,6 +178,7 @@ TDATA " EStyle TDATA OAStyle
 TDATA " OAStyle TDATA e
 TDATA > ODat TDATA Dat
 TDATA x Dat TDATA Dat
+TDATA STR Dat TDATA Dat
 TDATA <em Dat EMP OEm,Dat
 TDATA <b Dat BOLD OBold,Dat
 TDATA <abbr Dat ABBRI OAbbr,Dat
@@ -202,6 +203,7 @@ THEADER " EStyle THEADER OAStyle
 THEADER " OAStyle THEADER e
 THEADER > OTh THEADER Th
 THEADER x Th THEADER Th
+THEADER STR Th THEADER Th
 THEADER <em Th EMP OEm,Th
 THEADER <b Th BOLD OBold,Th
 THEADER <abbr Th ABBRI OAbbr,Th
@@ -262,6 +264,7 @@ FORM post OAMethod FORM FMethod
 FORM " FMethod FORM e
 FORM > OForm FORM Form
 FORM x Form FORM Form
+FORM STR Form FORM Form
 FORM <em Form EMP OEm,Form
 FORM <b Form BOLD OBold,Form
 FORM <abbr Form ABBRI OAbbr,Form
@@ -311,6 +314,7 @@ BTN button OAType BTN FType
 BTN " FType BTN e
 BTN > OBut BTN But
 BTN x But BTN But
+BTN STR But BTN But
 BTN <em But EMP OEm,But
 BTN <b But BOLD OBold,But
 BTN <abbr But ABBRI OAbbr,But
@@ -337,6 +341,7 @@ EMP " EStyle EMP OAStyle
 EMP " OAStyle EMP e
 EMP > OEm EMP Em
 EMP x Em EMP Em
+EMP STR Em EMP Em
 EMP <!-- Em EMP OCom,Em
 EMP --> OCom EMP e
 EMP </em Em EMP CEm
@@ -372,6 +377,7 @@ BOLD " EStyle BOLD OAStyle
 BOLD " OAStyle BOLD e
 BOLD > OBold BOLD Bold
 BOLD x Bold BOLD Bold
+BOLD STR Bold BOLD Bold
 BOLD <!-- Bold BOLD OCom,Bold
 BOLD --> OCom BOLD e
 BOLD </b Bold BOLD CBold
@@ -407,6 +413,7 @@ ABBRI " EStyle ABBRI OAStyle
 ABBRI " OAStyle ABBRI e
 ABBRI > OAbbr ABBRI Abbr
 ABBRI x Abbr ABBRI Abbr
+ABBRI STR Abbr ABBRI Abbr
 ABBRI <!-- Abbr ABBRI OCom,Abbr
 ABBRI --> OCom ABBRI e
 ABBRI </abbr Abbr ABBRI CAbbr
@@ -442,6 +449,7 @@ STRG " EStyle STRG OAStyle
 STRG " OAStyle STRG e
 STRG > OStrong STRG Strong
 STRG x Strong STRG Strong
+STRG STR Strong STRG Strong
 STRG <!-- Strong STRG OCom,Strong
 STRG --> OCom STRG e
 STRG </strong Strong STRG CStrong
@@ -477,6 +485,7 @@ SML " EStyle SML OAStyle
 SML " OAStyle SML e
 SML > OSmall SML Small
 SML x Small SML Small
+SML STR Small SML Small
 SML <!-- Small SML OCom,Small
 SML --> OCom SML e
 SML </small Small SML CSmall
@@ -544,6 +553,7 @@ ANCHOR " EHref ANCHOR OAHref
 ANCHOR " OAHref ANCHOR e
 ANCHOR > OA ANCHOR A
 ANCHOR x A ANCHOR A
+ANCHOR STR A ANCHOR A
 ANCHOR <em A EMP OEm,A
 ANCHOR <b A BOLD OBold,A
 ANCHOR <abbr A ABBRI OAbbr,A
@@ -616,6 +626,13 @@ HEADERnP x H4 HEADERnP H4
 HEADERnP x H5 HEADERnP H5
 HEADERnP x H6 HEADERnP H6
 HEADERnP x Par HEADERnP Par
+HEADERnP STR H1 HEADERnP H1
+HEADERnP STR H2 HEADERnP H2
+HEADERnP STR H3 HEADERnP H3
+HEADERnP STR H4 HEADERnP H4
+HEADERnP STR H5 HEADERnP H5
+HEADERnP STR H6 HEADERnP H6
+HEADERnP STR Par HEADERnP Par
 HEADERnP <em H1 EMP OEm,H1
 HEADERnP <b H1 BOLD OBold,H1
 HEADERnP <abbr H1 ABBRI OAbbr,H1
@@ -717,6 +734,7 @@ SCRIPT " EStyle SCRIPT OAStyle
 SCRIPT " OAStyle SCRIPT e 
 SCRIPT > OSc SCRIPT Sc
 SCRIPT x Sc SCRIPT Sc
+SCRIPT STR Sc SCRIPT Sc
 SCRIPT <em Sc EMP OEm,Sc
 SCRIPT <b Sc BOLD OBold,Sc
 SCRIPT <abbr Sc ABBRI OAbbr,Sc
@@ -748,6 +766,7 @@ DIVS " EStyle DIVS OAStyle
 DIVS " OAStyle DIVS e
 DIVS > ODiv DIVS Div
 DIVS x Div DIVS Div
+DIVS STR Div DIVS Div
 DIVS <!-- Div DIVS OCom,Div
 DIVS --> OCom DIVS e
 DIVS <link Div LINK OLi,Div
