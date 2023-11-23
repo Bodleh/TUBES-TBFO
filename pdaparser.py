@@ -91,33 +91,36 @@ def process(pda, tokens, html_path) :
         tokens_with_nl = parse_html_with_nl(html_path)
         counter_check = 0
         for el in tokens_with_nl :
+            if counter == counter_check :
+                break
             if el == 'nl' :
                 line_number += 1
             if el == cur_token :
                 counter_check += 1
-            if counter == counter_check :
-                break
-        
+            
         # print(f"Current State: {current_state}")
         # print(f"Current Token: {cur_token}")
         # print(processed_token)
         # print(stack)
         # print(f"Current Top Stack: {stack[-1]}")
-        print("Syntax Error\n")
-        if cur_token == 'STR' :
-            print(f"Error at line {line_number} : Text can't be in <html>, <head>, <body>, <table>, or <tr> tag")
+        print("\nSyntax Error\n")
+        if cur_token == 'STR' and line_number != 1 :
+            print(f"Error at line {line_number} (or line {line_number-1}/{line_number+1}): Text can't be in <html>, <head>, <body>, <table>, or <tr> tag")
         else :
-            print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
+            if line_number != 1 :
+                print(f"Error at line {line_number} (or line {line_number-1}/{line_number+1}): token [\033[33m {cur_token} \033[0m]")
+            else :
+                print(f"Error at line {line_number}: token [\033[33m {cur_token} \033[0m]")
     else :
         if pda_type == 'F' and current_state in pda['final_states'] :
-            print("Accepted")
+            print("\nAccepted")
         elif pda_type == 'E' and stack == [pda['start_stack_symbol']] :
-            print("Accepted")
+            print("\nAccepted")
         else :
             with open(html_path, 'r') as file :
                 lines = file.readlines()
             line_number = len(lines)
-            print("Syntax Error\n")
+            print("\nSyntax Error\n")
             print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
 
 # Print PDA information for debugging

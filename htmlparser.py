@@ -40,7 +40,6 @@ def parse_html(html_path: str) -> list:
                             tokens.append(quote_content)
                         else:
                             if quote_content.lower() == 'get' or quote_content.lower() == 'post':
-                                #
                                 tokens.append(quote_content.lower())
                             else:                                                                 
                                 tokens.append(
@@ -105,7 +104,7 @@ def filter_tokens(tokens: list) -> list:
             skip_content = True
             filtered_tokens.append(token)
         elif (not skip_content and token not in ['NO_STR']) or token == 'x':
-            if token != 'STR' or (token == 'STR' and prev_token != '<!--') :
+            if token != 'STR' or (token == 'STR' and prev_token not in ['<!--', '"']) :
                 filtered_tokens.append(token)
         prev_token = token
 
@@ -151,7 +150,6 @@ def parse_html_with_nl(html_path: str) -> list:
                             tokens.append(quote_content)
                         else:
                             if quote_content.lower() == 'get' or quote_content.lower() == 'post':
-                                #
                                 tokens.append(quote_content.lower())
                             else:                                                                 
                                 tokens.append(
