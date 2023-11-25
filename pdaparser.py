@@ -103,7 +103,7 @@ def process(pda, tokens, html_path) :
         # print(processed_token)
         # print(stack)
         # print(f"Current Top Stack: {stack[-1]}")
-        print("\nSyntax Error\n")
+        print("\n\033[91mSyntax Error\033[0m\n")
         if cur_token == 'STR' and line_number != 1 :
             print(f"Error at line {line_number} (or line {line_number-1}/{line_number+1}): Text can't be in <html>, <head>, <body>, <table>, or <tr> tag")
         else :
@@ -113,14 +113,14 @@ def process(pda, tokens, html_path) :
                 print(f"Error at line {line_number}: token [\033[33m {cur_token} \033[0m]")
     else :
         if pda_type == 'F' and current_state in pda['final_states'] :
-            print("\nAccepted")
+            print("\n\033[92mAccepted\033[0m")
         elif pda_type == 'E' and stack == [pda['start_stack_symbol']] :
-            print("\nAccepted")
+            print("\n\033[92mAccepted\033[0m")
         else :
             with open(html_path, 'r') as file :
                 lines = file.readlines()
             line_number = len(lines)
-            print("\nSyntax Error\n")
+            print("\n\033[91mSyntax Error\033[0m\n")
             print(f"Error at line {line_number} : token [\033[33m {cur_token} \033[0m]")
 
 # Print PDA information for debugging

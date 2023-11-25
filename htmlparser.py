@@ -121,8 +121,16 @@ def parse_html_with_nl(html_path: str) -> list:
     special_tags = {'button': ['type'], 'form': ['method'], 'input': ['type']}
 
     for match in re.finditer(tag_regex, html_content):
-        if match.group(1): 
-            if match.group(1): 
+        if match.group(1):
+            comment_content = match.group(1)
+            if '\n' in comment_content:
+                    tokens.append('<!--')
+                    tokens.append('STR')
+                    i = comment_content.count('\n')
+                    for x in range(0,i) :
+                        tokens.append('nl')
+                    tokens.append('-->')
+            else :
                 tokens.append('<!--')
                 tokens.append('STR') 
                 tokens.append('-->')
@@ -202,4 +210,31 @@ def parse_html_with_nl(html_path: str) -> list:
             if temp_token.strip():
                 tokens.append("STR")
 
-    return filter_tokens(tokens)
+    return filter_tokens_nl(tokens)
+
+def filter_tokens_nl(tokens: list) -> list:
+    filtered_tokens = []
+    in_title_tag = False
+    skip_content = False
+
+    prev_token = ""
+    for token in tokens:
+        if '<title' in token.lower():
+            in_title_tag = True
+            skip_content = False
+            filtered_tokens.append(token)
+        elif '</title' in token.lower():
+            in_title_tag = False
+            skip_content = False
+            filtered_tokens.append(token)
+        elif in_title_tag and token == '>':
+            skip_content = True
+            filtered_tokens.append(token)
+        elif in_title_tag and token == 'nl':
+            filtered_tokens.append(token)
+        elif (not skip_content and token not in ['NO_STR']) or token == 'x':
+            if token != 'STR' or (token == 'STR' and prev_token not in ['<!--', '"']):
+                filtered_tokens.append(token)
+        prev_token = token
+
+    return filtered_tokens
