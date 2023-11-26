@@ -1,5 +1,5 @@
 import argparse
-from htmlparser import parse_html, parse_html_with_nl
+from htmlparser import parse_html
 from pdaparser import parse_pda, process, print_pda
 
 parser = argparse.ArgumentParser()

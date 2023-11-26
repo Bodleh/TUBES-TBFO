@@ -12,10 +12,9 @@ def parse_html(html_path: str) -> list:
 
     for match in re.finditer(tag_regex, html_content):
         if match.group(1): 
-            if match.group(1): 
-                tokens.append('<!--')
-                tokens.append('STR') 
-                tokens.append('-->')
+            tokens.append('<!--')
+            tokens.append('STR') 
+            tokens.append('-->')
         elif match.group(2):
             tag = match.group(2)
             tag_name = ''
