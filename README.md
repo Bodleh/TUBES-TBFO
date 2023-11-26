@@ -9,7 +9,7 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Features](#features)
-- [File Structures Overview](#File-Structure)
+- [File Structures ](#File-Structure)
 - [Links](#links)
 
 
