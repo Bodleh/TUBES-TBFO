@@ -164,6 +164,7 @@ TROW <th Row THEADER OTh,Row
 TROW </tr Row TROW CRow
 TROW > CRow TROW e
 TROW x Table TABLE Table
+TROW x Dat TDATA Dat
 TDATA class ODat TDATA OClass,ODat
 TDATA = OClass TDATA EClass
 TDATA " EClass TDATA OAClass
@@ -178,6 +179,7 @@ TDATA " EStyle TDATA OAStyle
 TDATA " OAStyle TDATA e
 TDATA > ODat TDATA Dat
 TDATA x Dat TDATA Dat
+TDATA <tr Dat TROW ORow,Dat
 TDATA STR Dat TDATA Dat
 TDATA <em Dat EMP OEm,Dat
 TDATA <b Dat BOLD OBold,Dat
